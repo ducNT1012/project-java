@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
                 TaiKhoanDAO dao = new TaiKhoanDAO();
                 this.hoTen = dao.getHoTen(tenDangNhap);
 
-                setTitle("Sales Manager - Quản lý bán hàng");
+                setTitle("Quản lý cửa hàng điện thoại Xcenter");
                 setSize(1200, 750);
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 setLocationRelativeTo(null);
@@ -51,7 +51,7 @@ public class MainFrame extends JFrame {
                 logoPanel.setBorder(
                                 BorderFactory.createEmptyBorder(15, 15, 15, 10));
 
-                JLabel lblLogo = new JLabel("SALES MANAGER");
+                JLabel lblLogo = new JLabel("XCENTER");
                 lblLogo.setForeground(Color.WHITE);
                 lblLogo.setFont(new Font("Arial", Font.BOLD, 19));
 
@@ -79,6 +79,7 @@ public class MainFrame extends JFrame {
                 JButton btnKhachHang = taoNut("Khách hàng", 3);
                 JButton btnHoaDon = taoNut("Hóa đơn", 4);
                 JButton btnChiTiet = taoNut("Chi tiết hóa đơn", 5);
+                JButton btnNhanVien = taoNut("Nhân viên", 6);
 
                 cacNutMenu = new JButton[] {
                                 btnTongQuan,
@@ -86,14 +87,16 @@ public class MainFrame extends JFrame {
                                 btnLoaiSP,
                                 btnKhachHang,
                                 btnHoaDon,
-                                btnChiTiet
+                                btnChiTiet,
+                                btnNhanVien
                 };
 
                 JLabel lblTongQuan = taoNhomMenu("TỔNG QUAN");
                 JLabel lblBanHang = taoNhomMenu("BÁN HÀNG");
                 JLabel lblHangHoa = taoNhomMenu("HÀNG HÓA");
                 JLabel lblKhachHang = taoNhomMenu("KHÁCH HÀNG");
-                nhomMenu = new JLabel[] { lblTongQuan, lblBanHang, lblHangHoa, lblKhachHang };
+                JLabel lblNhanSu = taoNhomMenu("NHÂN SỰ");
+                nhomMenu = new JLabel[] { lblTongQuan, lblBanHang, lblHangHoa, lblKhachHang, lblNhanSu };
 
                 danhSachMenu.add(lblTongQuan);
                 danhSachMenu.add(btnTongQuan);
@@ -105,6 +108,8 @@ public class MainFrame extends JFrame {
                 danhSachMenu.add(btnLoaiSP);
                 danhSachMenu.add(lblKhachHang);
                 danhSachMenu.add(btnKhachHang);
+                danhSachMenu.add(lblNhanSu);
+                danhSachMenu.add(btnNhanVien);
                 setMenuActive(btnTongQuan);
 
                 menuPanel.add(logoPanel, BorderLayout.NORTH);
@@ -253,6 +258,14 @@ public class MainFrame extends JFrame {
                     contentPanel.revalidate();
                     contentPanel.repaint();
                 });
+
+                btnNhanVien.addActionListener(e -> {
+                    setMenuActive(btnNhanVien);
+                    contentPanel.removeAll();
+                    contentPanel.add(new NhanVienPanel(), BorderLayout.CENTER);
+                    contentPanel.revalidate();
+                    contentPanel.repaint();
+                });
         }
 
         // ================= THU GỌN MENU =================
@@ -277,7 +290,8 @@ public class MainFrame extends JFrame {
                                                 BorderFactory.createEmptyBorder(15, 0, 15, 0));
                                 cacNutMenu[i].setToolTipText(
                                                 new String[] { "Tổng quan", "Sản phẩm", "Loại sản phẩm",
-                                                                "Khách hàng", "Hóa đơn", "Chi tiết hóa đơn" }[i]);
+                                                                "Khách hàng", "Hóa đơn", "Chi tiết hóa đơn",
+                                                                "Nhân viên" }[i]);
                         }
                         for (JLabel label : nhomMenu) {
                                 label.setVisible(false);
@@ -297,7 +311,8 @@ public class MainFrame extends JFrame {
                                         "Loại sản phẩm",
                                         "Khách hàng",
                                         "Hóa đơn",
-                                        "Chi tiết hóa đơn"
+                                        "Chi tiết hóa đơn",
+                                        "Nhân viên"
                         };
 
                         for (int i = 0; i < cacNutMenu.length; i++) {
@@ -418,6 +433,14 @@ public class MainFrame extends JFrame {
                                         g2.drawLine(7, 10, 14, 10);
                                         g2.drawLine(7, 13, 12, 13);
                                         break;
+                                case 6:
+                                        g2.drawOval(7, 2, 6, 6);
+                                        g2.drawArc(3, 10, 14, 10, 0, 180);
+                                        g2.drawOval(1, 5, 5, 5);
+                                        g2.drawArc(0, 12, 8, 7, 0, 180);
+                                        g2.drawOval(14, 5, 5, 5);
+                                        g2.drawArc(12, 12, 8, 7, 0, 180);
+                                        break;
                                 default:
                                         g2.drawRoundRect(2, 3, 16, 14, 2, 2);
                                         g2.drawLine(6, 7, 14, 7);
@@ -507,7 +530,7 @@ public class MainFrame extends JFrame {
                 lblTitle.setForeground(chu);
 
                 JLabel lblMoTa = new JLabel(
-                                "Chào mừng Admin đến với hệ thống quản lý bán hàng.");
+                                "Chào mừng bạn đến với hệ thống quản lý cửa hàng điện thoại Xcenter.");
 
                 lblMoTa.setFont(new Font("Arial", Font.PLAIN, 14));
                 lblMoTa.setForeground(Color.GRAY);
@@ -516,7 +539,7 @@ public class MainFrame extends JFrame {
                 header.add(Box.createVerticalStrut(10));
                 header.add(lblMoTa);
 
-                JPanel cards = new JPanel(new GridLayout(2, 2, 20, 20));
+                JPanel cards = new JPanel(new GridLayout(0, 2, 20, 20));
                 cards.setBackground(nen);
 
                 cards.add(taoThe("SẢN PHẨM",
@@ -530,6 +553,9 @@ public class MainFrame extends JFrame {
 
                 cards.add(taoThe("HÓA ĐƠN",
                                 "Theo dõi hoạt động bán hàng", "04"));
+
+                cards.add(taoThe("NHÂN VIÊN",
+                                "Quản lý hồ sơ và trạng thái nhân sự", "05"));
 
                 contentPanel.add(header, BorderLayout.NORTH);
                 contentPanel.add(cards, BorderLayout.CENTER);

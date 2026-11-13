@@ -28,7 +28,7 @@ public class LoginFrame extends JFrame {
     private boolean dangChuyenTrang;
 
     public LoginFrame() {
-        setTitle("Đăng nhập - Quản lý bán hàng");
+        setTitle("Đăng nhập - Xcenter");
         setSize(900, 590);
         setMinimumSize(new Dimension(820, 540));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,14 +50,14 @@ public class LoginFrame extends JFrame {
         brandPanel.setLayout(new BoxLayout(brandPanel, BoxLayout.Y_AXIS));
         brandPanel.setBorder(BorderFactory.createEmptyBorder(42, 38, 34, 34));
 
-        JLabel lblLogo = new JLabel("▣  SALES MANAGER");
+        JLabel lblLogo = new JLabel("▣  XCENTER");
         lblLogo.setFont(new Font("Arial", Font.BOLD, 18));
         lblLogo.setForeground(Color.WHITE);
         lblLogo.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JPanel badge = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         badge.setOpaque(false);
-        JLabel lblBadge = new JLabel("  QUẢN LÝ BÁN HÀNG  ");
+        JLabel lblBadge = new JLabel("  CỬA HÀNG ĐIỆN THOẠI  ");
         lblBadge.setFont(new Font("Arial", Font.BOLD, 10));
         lblBadge.setForeground(new Color(220, 255, 238));
         lblBadge.setOpaque(true);
@@ -67,19 +67,19 @@ public class LoginFrame extends JFrame {
         badge.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblHeadline = new JLabel(
-                "<html>Quản lý bán hàng<br><font color='#69b5ff'>thật dễ dàng.</font></html>");
+                "<html>Quản lý cửa hàng<br><font color='#69b5ff'>điện thoại Xcenter.</font></html>");
         lblHeadline.setFont(new Font("Arial", Font.BOLD, 30));
         lblHeadline.setForeground(Color.WHITE);
         lblHeadline.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblDescription = new JLabel(
-                "<html>Theo dõi sản phẩm, khách hàng và hóa đơn<br>"
-                        + "trên một hệ thống đơn giản, tiện lợi.</html>");
+                "<html>Theo dõi sản phẩm, khách hàng, nhân viên<br>"
+                        + "và hóa đơn trên một hệ thống tiện lợi.</html>");
         lblDescription.setFont(new Font("Arial", Font.PLAIN, 14));
         lblDescription.setForeground(new Color(211, 221, 237));
         lblDescription.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel lblFooter = new JLabel("NỀN TẢNG QUẢN LÝ CỬA HÀNG");
+        JLabel lblFooter = new JLabel("QUẢN LÝ CỬA HÀNG ĐIỆN THOẠI");
         lblFooter.setFont(new Font("Arial", Font.BOLD, 10));
         lblFooter.setForeground(new Color(166, 184, 209));
         lblFooter.setAlignmentX(Component.LEFT_ALIGNMENT);
