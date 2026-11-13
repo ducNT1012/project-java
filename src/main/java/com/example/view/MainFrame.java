@@ -620,14 +620,6 @@ public class MainFrame extends JFrame {
                 }
         }
 
-        // private void thongBao(String ten) {
-
-        //         JOptionPane.showMessageDialog(
-        //                         this,
-        //                         ten + " sẽ được xây dựng ở bước tiếp theo!");
-        // }
-
-        // ================= ICON NGƯỜI DÙNG =================
 
         private static class UserIcon implements Icon {
 
